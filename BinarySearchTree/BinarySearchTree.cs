@@ -60,5 +60,34 @@ namespace BinarySearchTree
                 Display(node.rightNode);
             }
         }
+        public int GetSize()
+        {
+            return count;
+        }
+        public bool SearchTree(int data, Node<T> node)
+        {
+            if (node == null)
+            {
+                return false;
+            }
+            else
+            {
+                if (this.Current.data.Equals(data))
+                {
+                    result = true;
+                }
+                else if (this.Current.data.CompareTo(data) > 0)
+                {
+                    this.Current = this.Current.leftNode;
+                    SearchTree(data, Current);
+                }
+                else
+                {
+                    this.Current = this.Current.rightNode;
+                    SearchTree(data, Current);
+                }
+                return result;
+            }
+        }
     }
 }
