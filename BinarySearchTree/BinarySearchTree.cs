@@ -47,5 +47,18 @@ namespace BinarySearchTree
                 }
             }
         }
+        public Node<T> GetRoot()
+        {
+            return this.Root;
+        }
+        public void Display(Node<T> node)
+        {
+            if (node != null)
+            {
+                Display(node.leftNode);
+                Console.WriteLine("Element in binary search tree is:" + node.data);
+                Display(node.rightNode);
+            }
+        }
     }
 }
